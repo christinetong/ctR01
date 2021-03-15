@@ -1,5 +1,5 @@
 ---
-title: "[ct] Introduction to R"
+title: "[MATH5006] Introduction to R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
