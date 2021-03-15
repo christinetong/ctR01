@@ -10,31 +10,113 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Activity 1.1
+## Practice 1.1 {data-progressive=TRUE}
 
-### Exercise 
+The School of Business has 5 programs: Business, HR, Marketing, Accounting, Management.  Below are the current enrollment numbers in each program and the forecasted enrollment for next year.  
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
+|Program | Current |Forecast|
+|:-------|:-------:|:---------:|
+|Business|130|120|
+|HR|34|50|
+|Marketing|0|42|
+|Accounting|23|20|
+|Management|10|10|
 
-Write the R code required to add two plus two:
+### 1. Create vectors
 
-```{r two-plus-two, exercise=TRUE}
+**Complete the code below to create 3 vectors, `program`, `current`, and `forecast` to store the data from the table above.**
+
+```{r ex1-1-1, exercise=TRUE, exercise.lines = 10, exercise.eval=FALSE}
+# Modify the code below to create 3 vectors, program, current, and forecast
+program<-________________
+current<-c(130,34,0,23,10)
+forecast<-_______________
+
+# Show the contents of the 3 vectors  
+program
+current
+forecast
+```
+
+```{r ex1-1-1-solution}
+program<-c("Business", "HR", "Marketing","Accounting", "Management")
+current<-c(130,34,0,23,10)
+forecast<-c(120,50,42,20,10)
+
+# Show the contents of the 3 vectors  
+program
+current
+forecast
+```
+
+
+### 2. Create a matrix from multiple vectors
+
+`rbind()` and `cbind()` can be used to combine vectors into a matrix.
+
+**Combine `program`, `current` and `forecast` into a matrix using rbind and cbind.**
+
+```{r ex1-1-2, exercise=TRUE, exercise.lines = 10, exercise.eval=FALSE}
+
+program<-c("Business", "HR", "Marketing", "Accounting", "Management")
+current<-c(130,34,0,23,10)
+forecast<-c(120,50,42,20,10)
+
+# Run the code with rbind in the blank below, then run it again with cbind
+# What is the difference?
+enroll<- _______(program, current, forecast)
+enroll
 
 ```
 
-### Exercise with Code
+### 3. Pre-loaded data sets
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+**Enter the code to view the data sets that are pre-loaded with R**
 
-Now write a function that adds any two numbers and then call it:
+```{r ex1-1-3, exercise=TRUE, exercise.eval=FALSE}
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
 ```
 
-## Activity 1.2
+```{r ex1-1-3-solution}
+data()
+```
+
+### 4. Black Cherry Trees
+
+**Find the pre-loaded data set which contains information about Black Cherry trees, then enter it in the blanks below.**
+
+```{r ex1-1-4, exercise=TRUE, exercise.eval=FALSE}
+# Run the code. What do the functions str() and summary() do?
+str(____)
+summary(____)
+```
+
+```{r ex1-1-4-solution}
+str(trees)
+summary(trees)
+```
+
+
+```{r ex1-1-5, exercise=TRUE, exercise.eval=FALSE}
+# Run the code. What do the functions head() and tail() do?
+head(____)
+tail(____)
+```
+
+```{r ex1-1-5-solution}
+head(trees)
+tail(trees)
+```
+
+
+
+### BB - In-class activity 1.1
+
+**Use the output above to complete In-Class activity 1 on Blackboard.**
+
+<font color="red">STOP HERE.</font> Do not continue until instructed.
+
+## Practice 1.2
 
 ### Exercise with Hint
 
