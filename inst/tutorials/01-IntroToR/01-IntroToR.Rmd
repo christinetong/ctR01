@@ -2,6 +2,7 @@
 title: "[MATH5006] Introduction to R"
 output: learnr::tutorial
 runtime: shiny_prerendered
+description: "Data Basics, Subsetting Data"
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +12,7 @@ tutorial_options(exercise.completion=FALSE)
 ```
 
 
-## Practice 1.1 {data-progressive=TRUE}
+## Data Basics {data-progressive=TRUE}
 
 The following table shows a retailer's gross revenue ($) in six product categories for the previous year and the current year to date.
 
@@ -123,6 +124,11 @@ productRevenue<-data.frame(category, prevYear, yearToDate)
 
 ```
 
+```{r ex1-1-5-hint}
+# See lecture notes :)
+```
+
+
 ### 6. Black Cherry Trees
 
 **Find the pre-loaded data set which contains information about Black Cherry trees, then enter it in each of the blanks below.**
@@ -147,41 +153,8 @@ tail(____)
 
 <font color="red">STOP HERE.</font> Do not continue until instructed.
 
-## Practice 1.2
+## Subsetting Data {data-progressive=TRUE}
 
-### Exercise with Hint
+### 1. Activity
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
-```
-
-```{r print-limit-hint}
-head(mtcars)
-```
-
-### Quiz
-
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
-
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz0}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
-```
+### 1. Activity
