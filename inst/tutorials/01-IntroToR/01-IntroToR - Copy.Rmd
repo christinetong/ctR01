@@ -1,0 +1,251 @@
+---
+title: "[CTONG] Introduction to R"
+output: learnr::tutorial
+runtime: shiny_prerendered
+description: "Data Basics, Subsetting Data"
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.completion=FALSE)
+```
+
+
+## Data Basics {data-progressive=TRUE}
+
+The following table shows a retailer's gross revenue ($) in six product categories for the previous year and the current year to date.
+
+|Category |Previous Year |Year To Date|
+|:-------|:-------:|:---------:|
+|Electronics|30179|12032|
+|Books|8754|3213|
+|Stationery|3214|498|
+|Apparel|10118|2273|
+|Furniture|50423|7012|
+|Grocery|9274|8230|
+
+
+### 1. Create vectors
+
+```{r ex1-1-1, exercise=TRUE, exercise.lines = 10, exercise.eval=FALSE}
+# Modify the code below to create 3 vectors corresponding to the 3 columns in the table
+category<-________________
+prevYear<-c(30179,8754,3214,10118,50423, 9274)
+yearToDate<-_______________
+
+# Show the contents of the 3 vectors  
+category
+prevYear
+yearToDate
+```
+
+```{r ex1-1-1-solution}
+category<-c("Electronics","Books","Stationery","Apparel", "Furniture", "Grocery")
+prevYear<-c(30179,8754,3214,10118,50423, 9274)
+yearToDate<-c(12032, 3213, 498, 2273, 7012, 8230)
+```
+
+
+### 2. Create a matrix from multiple vectors
+
+`rbind()` and `cbind()` can be used to combine vectors into a matrix.
+
+```{r ex1-1-2, exercise=TRUE, exercise.lines = 10, exercise.eval=FALSE}
+prevYear<-c(30179,8754,3214,10118,50423, 9274)
+yearToDate<-c(12032, 3213, 498, 2273, 7012, 8230)
+
+# Run the code with rbind in the blank below, then run it again with cbind
+# What is the difference?
+revenue <- _______(prevYear, yearToDate)
+revenue
+```
+
+### 3. Knowledge Check
+
+```{r, echo=TRUE, eval=FALSE}
+income<-c(41304,89754,63214,180118, 50423)
+creditCard<-c(30032, 3213, 14938, 672273, 452)
+savings<-c(170, 5403, 8321, 32198, 25574)
+finance<-rbind(income, creditCard, savings)
+```
+
+```{r quiz1-3}
+quiz(caption="Use the code chunk above to answer the questions below:",
+  question("Output for *length(creditcard)*",
+    answer("[1] 3"),
+    answer("[5] 15"),
+    answer("[1] 5", correct = TRUE),
+    answer("[3] 5"),
+    allow_retry=TRUE,
+    random_answer_order = TRUE
+    
+  ),
+  question("Output for *dim(finance)*",
+    answer("[2] 2 5"),
+    answer("[1] 5 3"),
+    answer("[1] 15"),
+    answer("None of the above", correct = TRUE),
+    allow_retry=TRUE,
+    random_answer_order = FALSE
+  )
+)
+```
+
+
+
+### 4. Create a data frame
+
+**Create a data frame from vectors**
+
+```{r ex1-1-4, exercise=TRUE, exercise.eval=FALSE}
+category<-c("Electronics","Books","Stationery","Apparel", "Furniture", "Grocery")
+prevYear<-c(30179,8754,3214,10118,50423, 9274)
+yearToDate<-c(12032, 3213, 498, 2273, 7012, 8230)
+
+# Enter the code to create a data frame with category, prevYear, and yearToDate as variables
+productRevenue<-_______________________________________
+
+# Show the contents of productRevenue
+productRevenue
+```
+
+```{r ex1-1-4-solution}
+productRevenue<-data.frame(category, prevYear, yearToDate)
+```
+
+
+
+### 5. Pre-loaded data sets
+
+**Enter the code to view the data sets that are pre-loaded with R**
+
+```{r ex1-1-5, exercise=TRUE, exercise.eval=FALSE}
+
+```
+
+```{r ex1-1-5-hint}
+# See lecture notes :)
+```
+
+
+### 6. Black Cherry Trees
+
+**Find the pre-loaded data set which contains information about Black Cherry trees, then enter it in each of the blanks below.**
+
+```{r ex1-1-6, exercise=TRUE, exercise.eval=FALSE}
+# Run the code. What do the functions str() and summary() do?
+str(____)
+summary(____)
+```
+
+
+```{r ex1-1-7, exercise=TRUE, exercise.eval=FALSE}
+# Run the code. What do the functions head() and tail() do?
+head(____)
+tail(____)
+```
+
+
+### BB - In-class Activity 1.1
+
+**Use the output above to complete In-Class activity 1 on Blackboard.**
+
+<font color="red">STOP HERE.</font> Do not continue until instructed.
+
+## Subsetting Data {data-progressive=TRUE}
+
+### 1. grades[3,2:3]
+
+```{r ex1-2-1, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[3,2:3]
+```
+
+
+### 2. grades[-2,1:3]
+
+
+```{r ex1-2-2, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[-2,1:3]
+```
+
+
+### 3. grades[,c('phar', 'eng')]
+
+```{r ex1-2-3, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[,c('phar', 'eng')]
+```
+
+### 4. grades[2:3,-c('bio','chem')]
+
+```{r ex1-2-4, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[2:3,-c('bio','chem')]
+
+```
+
+### 5. grades[grades[,'eng']>50,]
+
+```{r ex1-2-5, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[grades[,'eng']>50,]
+```
+
+### 6. grades[c(TRUE,FALSE),c('chem','phys')]
+
+```{r ex1-2-6, exercise=TRUE, exercise.eval=FALSE}
+eng<-c(87, 90, 42, 62) # english
+phys<-c(72,88, 67, 49) # physics
+bio<-c(77, 82, 73, 53) # biology
+phar<-c(53,71, 80, 72) # pharmacology
+chem<-c(68, 92, 76, 61) # chemistry
+grades<-cbind(eng,phys,bio,phar,chem)
+grades
+
+#######
+grades[c(TRUE,FALSE),c('chem','phys')]
+
+```
